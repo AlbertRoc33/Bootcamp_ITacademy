@@ -122,9 +122,11 @@ where t.amount between 350 and 400 and t.declined=0
 and date(t.timestamp) in ('2024-03-13','2018-07-20','2015-04-29')
 order by t.amount desc;
    
-#Necessitem optimitzar l'assignació dels recursos i dependrà de la capacitat operativa que es requereixi, per la qual cosa et demanen la informació 
+/*
+Necessitem optimitzar l'assignació dels recursos i dependrà de la capacitat operativa que es requereixi, per la qual cosa et demanen la informació 
 #sobre la quantitat de transaccions que realitzen les empreses, però el departament de recursos humans és exigent i vol un llistat de les empreses 
-#on especifiquis si tenen més de 400 transaccions o menys.   
+#on especifiquis si tenen més de 400 transaccions o menys. 
+*/  
 select c.company_name,count(t.id) as Total_trans,case when count(t.id)> 400 then 'més de 400' else 'menys de 400' end as Grup_Trans
 from company c
 join transaction t
